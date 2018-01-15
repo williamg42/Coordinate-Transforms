@@ -38,7 +38,7 @@ double N = this->calc_N(rad_latitude);
 
 ECEFframe.first=  (N+coords.third)*cos_lat*cos_long;
 ECEFframe.second = (N+coords.third)*cos_lat*sin_long;
-ECEFframe.third = ((1-ee)*N+coords.third)*sin_lat;
+ECEFframe.third = ((1-GEOee)*N+coords.third)*sin_lat;
 
 
 
@@ -78,7 +78,7 @@ return this->ECEF_to_NED(this->Geodetic_to_ECEF(coords));
 
 double CoordinateTransform::calc_N(double latitude){
 
-return a/sqrt(1-ee*(sin(latitude)*sin(latitude)));
+return GEOa/sqrt(1-GEOee*(sin(latitude)*sin(latitude)));
 
 }
 
