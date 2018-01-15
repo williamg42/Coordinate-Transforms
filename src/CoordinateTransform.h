@@ -2,10 +2,10 @@
 #define COORDINATETRANSFORM_H_
 #include <math.h>
 
-#define a  6378137.0
-#define b  6356752.3
-#define f  0.00335281289
-#define ee 0.00669438442
+#define GEOa  6378137.0
+#define GEOb  6356752.3
+#define GEOf  0.00335281289
+#define GEOee 0.00669438442
 
 struct FrameCoordinates {
 
