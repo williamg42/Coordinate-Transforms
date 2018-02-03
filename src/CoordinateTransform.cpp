@@ -83,16 +83,16 @@ return GEOa/sqrt(1-GEOee*(sin(latitude)*sin(latitude)));
 }
 
 
-FrameCoordinates CoordinateTransform::Bframe_to_NED(Quaternions q, FrameCoordinates Body) {
+FrameCoordinates CoordinateTransform::Bframe_to_NED(Quaternions q, FrameCoordinates accBody) {
 
-   FrameCoordinates  NEDframe; //X, Y, Z
+   FrameCoordinates  acc_NEDframe; //X, Y, Z
 
-NEDframe.first = (q.W*q.W+q.X*q.X-q.Y*q.Y-q.Z*q.Z)*Body.first+2*(q.X*q.Y-q.W*q.Z)*Body.second+2*(q.W*q.Y+q.X*q.Z)*Body.third;
-NEDframe.second = 2*(q.X*q.Y+q.W*q.Z)*Body.first+(q.W*q.W-q.X*q.X+q.Y*q.Y-q.Z*q.Z)*Body.second+2*(q.Y*q.Z-q.W*q.X)*Body.third;
-NEDframe.third = 2*(q.X*q.Z+q.W*q.Y)*Body.first+2*(q.Y*q.Z+q.W*q.X)*Body.second+(q.W*q.W-q.X*q.X-q.Y*q.Y+q.Z*q.Z)*Body.third;
+acc_NEDframe.first = (q.W*q.W+q.X*q.X-q.Y*q.Y-q.Z*q.Z)*accBody.first+2*(q.X*q.Y-q.W*q.Z)*accBody.second+2*(q.W*q.Y+q.X*q.Z)*accBody.third;
+acc_NEDframe.second = 2*(q.X*q.Y+q.W*q.Z)*accBody.first+(q.W*q.W-q.X*q.X+q.Y*q.Y-q.Z*q.Z)*accBody.second+2*(q.Y*q.Z-q.W*q.X)*accBody.third;
+acc_NEDframe.third = 2*(q.X*q.Z+q.W*q.Y)*accBody.first+2*(q.Y*q.Z+q.W*q.X)*accBody.second+(q.W*q.W-q.X*q.X-q.Y*q.Y+q.Z*q.Z)*accBody.third;
 
 
 
-   return NEDframe;
+   return acc_NEDframe;
 }
 

@@ -37,7 +37,7 @@ FrameCoordinates Geodetic_to_ECEF(FrameCoordinates coords);
 FrameCoordinates ECEF_to_NED (FrameCoordinates coords);
 FrameCoordinates Geodetic_to_NED (FrameCoordinates coords);
 
-FrameCoordinates Bframe_to_NED(Quaternions q, FrameCoordinates Body);//Takes three values in the Body frame and converts them to the NED frame. Could be position, velocity, etc as long as it is X, Y, Z 
+FrameCoordinates Bframe_to_NED(Quaternions q, FrameCoordinates accBody);//Takes three values in the Body frame and converts them to the NED frame. Could be position, velocity, etc as long as it is X, Y, Z 
    
 
 private:
